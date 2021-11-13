@@ -34,6 +34,7 @@ def buy(buyHeaders, buyUsername, box):
     while text['tokens'] > 24:
     
         response = requests.put('https://api.blooket.com/api/users/unlockblook', data=buyData, headers=buyHeaders)
+        print(response.text)
         text = json.loads(response.text)
         if text['isNewBlook'] == True:
             newblooks.append(text['unlockedBlook'])
@@ -81,6 +82,6 @@ print('Which Box?')
 box = input()
 newblooks = []
 
-addTokens(addUsername='USERNAME', addToken='TOKEN')
-buy(buyUsername='USERNAME',box=box, buyHeaders={'Authorization': 'TOKEN'})
+addTokens(addUsername='hahayesboy', addToken='JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTg0ODI1NDJkOTU4YTIzZDUzZjUzOTkiLCJuYW1lIjoiaGFoYXllc2JveSIsImVtYWlsIjoicGFya2VyY2hhcmxlc3NtaXRoQGdtYWlsLmNvbSIsImdhbWVzUGxheWVkIjowLCJoYXNQYXNzd29yZCI6ZmFsc2UsInBsYW4iOiJTdGFydGVyIiwicm9sZSI6IlN0dWRlbnQiLCJzdHJpcGUiOiJjdXNfS1hMVW1Dc21QdnFRajkiLCJkYXRlQ3JlYXRlZCI6IjIwMjEtMTEtMDVUMDE6MDE6MDguMjg5WiIsImV4cCI6MTYzNzM3NDMwMn0.XKzSoGYOxK88vT1WAhC3wFkkxGtG5JwDd_1-pkmUmNU')
+buy(buyUsername='hahayesboy',box=box, buyHeaders={'Authorization': 'JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTg0ODI1NDJkOTU4YTIzZDUzZjUzOTkiLCJuYW1lIjoiaGFoYXllc2JveSIsImVtYWlsIjoicGFya2VyY2hhcmxlc3NtaXRoQGdtYWlsLmNvbSIsImdhbWVzUGxheWVkIjowLCJoYXNQYXNzd29yZCI6ZmFsc2UsInBsYW4iOiJTdGFydGVyIiwicm9sZSI6IlN0dWRlbnQiLCJzdHJpcGUiOiJjdXNfS1hMVW1Dc21QdnFRajkiLCJkYXRlQ3JlYXRlZCI6IjIwMjEtMTEtMDVUMDE6MDE6MDguMjg5WiIsImV4cCI6MTYzNzM3NDMwMn0.XKzSoGYOxK88vT1WAhC3wFkkxGtG5JwDd_1-pkmUmNU'})
 
